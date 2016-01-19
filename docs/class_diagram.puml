@@ -1,12 +1,12 @@
 @startuml
 
-interface WaterSource{
+interface com.noser.example.watersources.WaterSource{
    use()
    isEmpty()
 }
 
 class Pool
-class Fountain
+class com.noser.example.watersources.Fountain
 
 abstract class Animal {
    String name
@@ -19,8 +19,8 @@ class Lion{
 class Rhino{
 }
 
-class Cage {
-   WaterSource water
+class com.noser.example.Cage {
+   com.noser.example.watersources.WaterSource water
    FoodSource food
    List<Animal> animals
    List<CageComponent> components
@@ -28,12 +28,12 @@ class Cage {
 }
 
 
-WaterSource <|--- Pool
-WaterSource <|--- Fountain
+com.noser.example.watersources.WaterSource <|--- Pool
+com.noser.example.watersources.WaterSource <|--- com.noser.example.watersources.Fountain
 Animal <|--- Lion
 Animal <|--- Rhino
 
-Cage *- Animal : contains
-Cage *- "1" WaterSource : has
+com.noser.example.Cage *- Animal : contains
+com.noser.example.Cage *- "1" com.noser.example.watersources.WaterSource : has
 
 @enduml
