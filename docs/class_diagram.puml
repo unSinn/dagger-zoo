@@ -1,0 +1,39 @@
+@startuml
+
+interface WaterSource{
+   use()
+   isEmpty()
+}
+
+class Pool
+class Fountain
+
+abstract class Animal {
+   String name
+   drink()
+}
+
+class Lion{
+}
+
+class Rhino{
+}
+
+class Cage {
+   WaterSource water
+   FoodSource food
+   List<Animal> animals
+   List<CageComponent> components
+   addAnimal(Animal animal)
+}
+
+
+WaterSource <|--- Pool
+WaterSource <|--- Fountain
+Animal <|--- Lion
+Animal <|--- Rhino
+
+Cage *- Animal : contains
+Cage *- "1" WaterSource : has
+
+@enduml
